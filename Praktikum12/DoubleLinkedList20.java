@@ -22,6 +22,7 @@ public class DoubleLinkedList20 {
             head.prev = newNode;
             head = newNode;
         }
+        size++;
     }
 
     public void addLast(Mahasiswa20 data) {
@@ -33,6 +34,7 @@ public class DoubleLinkedList20 {
             newNode.prev = tail;
             tail = newNode;
         }
+        size++;
     }
 
     public void insertAfter(String keyNim, Mahasiswa20 data) {
@@ -60,11 +62,15 @@ public class DoubleLinkedList20 {
             current.next = newNode;
         }
         System.out.println("Node berhasil disisipkan setelah NIM " + keyNim);
+        size++;
     }
 
     public void print() {
+        if (isEmpty()) {
+        System.out.println("List masih kosong.");
+        return;
+    }
         Node20 current = head;
-        System.out.println("List Masih kosong.");
         while (current != null) {
             current.data.tampil();
             current = current.next;
